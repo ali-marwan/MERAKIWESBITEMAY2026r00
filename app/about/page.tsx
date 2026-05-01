@@ -33,7 +33,7 @@ const PRINCIPLES = [
 export default function AboutPage() {
   return (
     <>
-      <Section bg="paper" tone="default" className="pt-20 md:pt-28">
+      <Section bg="paper" tone="default">
         <Container size="pro">
           <div className="max-w-3xl">
             <Pill tone="bronze">About Meraki</Pill>

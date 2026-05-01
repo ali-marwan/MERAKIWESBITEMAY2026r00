@@ -30,9 +30,10 @@ export default function PortalUploadPage() {
         </Pill>
       </div>
       <UploadDropzone />
-      <p className="mt-8 text-xs text-ink-500">
-        TODO: Real upload — wire to Meraki AI ingestion endpoint, OCR pipeline,
-        and review queue when backend is ready.
+      <p className="mt-8 text-xs text-ink-500 leading-relaxed max-w-3xl">
+        Preview only. Files selected here are not transmitted or stored.
+        Document ingestion, the Meraki AI capture pipeline, and the accountant
+        review queue will activate when the portal is released to clients.
       </p>
     </div>
   );

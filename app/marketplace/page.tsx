@@ -21,7 +21,7 @@ export const metadata = buildMetadata({
 export default function MarketplacePage() {
   return (
     <>
-      <Section bg="paper" tone="default" className="pt-20 md:pt-28">
+      <Section bg="paper" tone="default">
         <Container size="pro">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
             <div className="lg:col-span-7">

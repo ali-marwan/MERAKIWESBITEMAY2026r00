@@ -164,7 +164,7 @@ export default function EInvoicingPage() {
   return (
     <>
       {/* HERO */}
-      <Section bg="paper" tone="default" className="pt-20 md:pt-28">
+      <Section bg="paper" tone="default">
         <div
           aria-hidden="true"
           className="absolute inset-0 bg-bronze-radial opacity-60 pointer-events-none"

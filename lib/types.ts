@@ -66,14 +66,14 @@ export interface BlogPost {
 }
 
 export type BlogCategory =
-  | "VAT"
+  | "UAE VAT"
   | "Corporate Tax"
   | "E-Invoicing"
   | "Accounting"
   | "Business Setup"
   | "Cash Flow"
   | "Meraki AI"
-  | "Compliance Mistakes";
+  | "Compliance Readiness";
 
 export interface Faq {
   q: string;
