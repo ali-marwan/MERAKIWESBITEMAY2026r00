@@ -25,10 +25,10 @@ export function Section({
     tone === "hero"
       ? "min-h-[calc(100vh-80px)] flex items-center"
       : tone === "tight"
-        ? "py-16 md:py-20"
+        ? "py-8 md:py-10"
         : tone === "footer-pre"
-          ? "py-20 md:py-24"
-          : "py-24 md:py-28 lg:py-32";
+          ? "py-12 md:py-14"
+          : "py-12 md:py-16";
   return (
     <section
       className={cn("relative w-full overflow-hidden", bgClass, toneClass, className)}
