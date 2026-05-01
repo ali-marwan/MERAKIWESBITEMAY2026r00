@@ -425,6 +425,103 @@ export default function MerakiAIPage() {
         </Container>
       </Section>
 
+      {/* MERAKI AI PORTAL */}
+      <Section bg="paper">
+        <Container size="pro">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+            <div className="lg:col-span-5">
+              <Eyebrow>Meraki AI Portal</Eyebrow>
+              <h2 className="mt-4 text-display-lg text-ink-900 text-balance">
+                A separate workspace for AI-assisted finance review.
+              </h2>
+              <p className="mt-5 text-body text-ink-500">
+                Meraki AI Portal is a separate subscription workspace for
+                AI-assisted invoice, tax, compliance, expense, and workflow
+                review. Access is separate from the Marketplace Login and is
+                provided to approved Meraki AI subscribers.
+              </p>
+              <p className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-bronze-700">
+                <span className="h-px w-8 bg-bronze-500" />
+                AI checks. Meraki verifies. Your records stay ready.
+              </p>
+              <p className="mt-3 text-sm font-semibold text-ink-700">
+                Built beyond automation. Designed for compliance.
+              </p>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Button
+                  href="/contact?intent=meraki-ai-access"
+                  variant="primary"
+                  size="md"
+                >
+                  Request Meraki AI Access
+                </Button>
+                <Button
+                  href="/marketplace?category=meraki-ai"
+                  variant="ghost"
+                  size="md"
+                >
+                  Explore Meraki AI Subscription
+                </Button>
+                <Button href="/contact" variant="ghost" size="md">
+                  Speak to Our Team
+                </Button>
+                <Button href="/packages" variant="ghost" size="md">
+                  View Marketplace Packages
+                </Button>
+              </div>
+              <p className="mt-6 text-xs text-ink-500 leading-relaxed max-w-md">
+                Marketplace Login is for service purchases and package
+                requests. Meraki AI Portal is for AI-assisted document,
+                invoice, tax, compliance, and workflow review. Separate
+                subscription required. Terms apply.
+              </p>
+            </div>
+            <div className="lg:col-span-7">
+              <div className="rounded-card bg-cream border border-hairline p-7 md:p-8">
+                <div className="flex items-center justify-between gap-3 mb-5">
+                  <p className="text-eyebrow uppercase text-bronze-700">
+                    Inside the Meraki AI Portal
+                  </p>
+                  <span className="rounded-pill bg-paper border border-hairline px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-ink-500 whitespace-nowrap">
+                    Approved subscribers
+                  </span>
+                </div>
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {[
+                    "Upload invoices and documents",
+                    "Review AI-flagged issues",
+                    "Track invoice and document review status",
+                    "Prepare VAT and Corporate Tax records",
+                    "E-invoicing readiness checklist",
+                    "Expense classification support",
+                    "Monthly compliance file preparation",
+                    "Professional verification workflow",
+                  ].map((item) => (
+                    <li
+                      key={item}
+                      className="flex items-start gap-2.5 rounded-2xl bg-paper border border-hairline px-4 py-3"
+                    >
+                      <Icon
+                        name="check"
+                        className="h-4 w-4 mt-0.5 text-bronze-700 shrink-0"
+                      />
+                      <span className="text-sm text-ink-700">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+                <p className="mt-6 text-xs text-ink-500 leading-relaxed">
+                  Capabilities listed above describe the Meraki AI Portal
+                  scope. Live access activates for approved Meraki AI
+                  subscribers — coming soon for general availability. Subject
+                  to required documents, authority portal requirements, and
+                  applicable UAE regulations.
+                </p>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </Section>
+
       {/* AI PLANS */}
       <Section bg="cream">
         <Container size="pro">

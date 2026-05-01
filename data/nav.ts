@@ -39,7 +39,7 @@ export const FOOTER_NAV = {
     { label: "Contact", href: "/contact" },
   ] satisfies NavItem[],
   portal: [
-    { label: "Client Login", href: "/login" },
+    { label: "Marketplace Login", href: "/login" },
     { label: "Portal Preview", href: "/portal" },
     { label: "Subscriptions", href: "/portal/subscriptions" },
     { label: "Reports", href: "/portal/reports" },

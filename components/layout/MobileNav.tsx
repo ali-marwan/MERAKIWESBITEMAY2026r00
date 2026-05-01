@@ -104,7 +104,7 @@ export function MobileNav() {
           </nav>
           <div className="px-6 pt-4 border-t border-hairline space-y-3">
             <Button href="/login" variant="ghost" size="md" fullWidth>
-              Client Login
+              Marketplace Login
             </Button>
             <Button href="/contact" variant="primary" size="md" fullWidth>
               Speak to Our Team

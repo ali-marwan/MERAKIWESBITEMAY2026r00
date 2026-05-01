@@ -74,7 +74,7 @@ export function SiteHeader() {
               size="sm"
               className="hidden md:inline-flex"
             >
-              Client Login
+              Marketplace Login
             </Button>
             <Button
               href="/contact"

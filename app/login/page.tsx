@@ -1,99 +1,117 @@
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { Pill } from "@/components/ui/Pill";
+import { Eyebrow } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { Icon, type IconName } from "@/components/ui/Icon";
 import { Logo } from "@/components/layout/Logo";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata = buildMetadata({
-  title: "Client Portal",
+  title: "Marketplace Login",
   description:
-    "The Meraki Client Portal is being prepared. A secure workspace for documents, Meraki AI review queues, subscriptions, and reports — available to approved clients when activated.",
+    "Marketplace Login is for Meraki service customers. Create an account or log in to request services, compare packages, and manage your Meraki marketplace activity. Meraki AI Portal access is separate.",
   path: "/login",
   noIndex: true,
 });
 
-const PORTAL_CAPABILITIES: { icon: IconName; label: string; detail: string }[] = [
+const MARKETPLACE_CAPABILITIES: {
+  icon: IconName;
+  label: string;
+  detail: string;
+}[] = [
   {
     icon: "briefcase",
-    label: "Package management",
-    detail: "View your active Meraki subscriptions and add-on services.",
+    label: "Request one-time services",
+    detail:
+      "Risk assessment, business setup, e-invoicing readiness reviews, and other one-time engagements.",
   },
   {
-    icon: "upload",
-    label: "Document upload",
-    detail: "Send invoices, receipts, and statements securely to your file.",
+    icon: "manage",
+    label: "Start eligible monthly packages",
+    detail:
+      "Subscribe to Meraki accounting, VAT, Corporate Tax, or compliance packages once your account is active.",
   },
   {
     icon: "doc",
-    label: "Invoice review status",
-    detail: "Track which documents are flagged, in review, or approved.",
-  },
-  {
-    icon: "shield",
-    label: "VAT file preparation",
-    detail: "See your VAT period at a glance ahead of each filing window.",
+    label: "Request custom quotes",
+    detail:
+      "Multi-entity, industry-specific, or custom-scope work — scoped and confirmed by our team.",
   },
   {
     icon: "calendar",
-    label: "Corporate Tax tracking",
-    detail: "Supporting documents and classifications kept ready for filing.",
-  },
-  {
-    icon: "receipt",
-    label: "E-invoicing readiness",
-    detail: "Track your readiness checklist as UAE rules are implemented.",
-  },
-  {
-    icon: "spark",
-    label: "Meraki AI review queue",
-    detail: "Items flagged by Meraki AI surface here for accountant review.",
+    label: "Track service requests",
+    detail:
+      "View status of submitted requests, packages in flight, and one-time services.",
   },
   {
     icon: "user",
-    label: "Team communication",
-    detail: "A single thread with your Meraki team — no inbox archaeology.",
+    label: "Manage future subscriptions",
+    detail:
+      "Subscription management, renewals, and add-on services when activated.",
   },
   {
-    icon: "chart",
-    label: "Reports & summaries",
-    detail: "Monthly summaries, compliance summaries, and management reports.",
+    icon: "shield",
+    label: "Stripe-ready checkout",
+    detail:
+      "The marketplace account structure is Stripe-ready. Live payments and checkout activate when connected.",
+  },
+];
+
+const FLOW_STEPS: { step: string; title: string; body: string }[] = [
+  {
+    step: "01",
+    title: "Login or sign up",
+    body: "Marketplace access is required before submitting service requests, purchasing packages, or starting subscriptions.",
+  },
+  {
+    step: "02",
+    title: "Select a service or package",
+    body: "Browse the marketplace, choose a one-time service, monthly package, or request a custom quote.",
+  },
+  {
+    step: "03",
+    title: "Submit company details",
+    body: "Provide the business information needed for your engagement so we can scope and confirm next steps.",
+  },
+  {
+    step: "04",
+    title: "Meraki reviews and confirms",
+    body: "Our team reviews your request, confirms scope and pricing, and proceeds once you approve.",
   },
 ];
 
 export default function LoginPage() {
   return (
     <>
+      {/* HERO */}
       <Section bg="cream" tone="default">
         <Container size="pro">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
             <div className="lg:col-span-7">
               <Pill tone="bronze" dot>
-                Client portal · In preparation
+                Marketplace · Account access
               </Pill>
               <h1 className="mt-6 text-display-xl text-ink-900 text-balance">
-                A secure workspace for Meraki clients — coming soon.
+                Marketplace Login
               </h1>
               <p className="mt-6 text-lead text-ink-500 max-w-2xl">
-                The Meraki Client Portal is being prepared. It will be a single
-                place for documents, Meraki AI review queues, subscriptions,
-                compliance calendars, and monthly reports. Client portal access
-                will be available for approved clients when activated.
+                Create an account or log in to request services, compare
+                packages, and manage your Meraki marketplace activity.
+              </p>
+              <p className="mt-5 text-body text-ink-500 max-w-2xl">
+                Marketplace access is required before submitting service
+                requests, purchasing packages, or starting subscriptions.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
-                <Button href="/contact?intent=portal-access" variant="primary" size="md">
-                  Speak to Our Team
-                </Button>
-                <Button href="/packages" variant="ghost" size="md">
+                <Button href="/packages" variant="primary" size="md">
                   View Packages
                 </Button>
-                <Button
-                  href="/contact?intent=custom-quote"
-                  variant="ghost"
-                  size="md"
-                >
-                  Request Custom Quote
+                <Button href="/marketplace" variant="ghost" size="md">
+                  Browse Services
+                </Button>
+                <Button href="/contact" variant="ghost" size="md">
+                  Speak to Our Team
                 </Button>
                 <Button
                   href="/meraki-ai"
@@ -105,9 +123,9 @@ export default function LoginPage() {
                 </Button>
               </div>
               <p className="mt-6 text-sm text-ink-500 max-w-xl">
-                Already a Meraki client? Reach out to your Meraki contact and
-                we&apos;ll confirm portal access as soon as it&apos;s activated
-                for your account.
+                Already have an account? Sign-in is being prepared and will
+                activate alongside marketplace checkout. Contact our team to
+                request a marketplace account.
               </p>
             </div>
 
@@ -116,15 +134,16 @@ export default function LoginPage() {
                 <div className="flex items-center justify-between gap-4 mb-5">
                   <Logo />
                   <span className="rounded-pill bg-bronze-50 border border-bronze-100 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-bronze-700">
-                    Preview
+                    In preparation
                   </span>
                 </div>
                 <p className="text-display-sm text-ink-900">
-                  Client portal access
+                  Marketplace account access
                 </p>
                 <p className="mt-2 text-body-sm text-ink-500">
-                  Sign-in is not yet active. While the portal is being prepared,
-                  approved Meraki clients can request access through our team.
+                  Sign-in and account creation are being prepared. While the
+                  marketplace is being readied, you can request services,
+                  packages, or custom quotes through our team.
                 </p>
 
                 <div className="mt-5 rounded-2xl border border-hairline bg-cream p-4 flex items-start gap-3">
@@ -133,21 +152,21 @@ export default function LoginPage() {
                   </span>
                   <div className="text-sm text-ink-700">
                     <p className="font-semibold text-ink-900">
-                      Secure by design
+                      Stripe-ready, not yet live
                     </p>
                     <p className="mt-1 text-ink-500">
-                      Authentication, role-based access, and document handling
-                      are being built before any client data is moved into the
-                      portal.
+                      The marketplace structure is Stripe-ready. Live payments
+                      and checkout activate when connected. No fake credentials
+                      are accepted.
                     </p>
                   </div>
                 </div>
 
                 <ul className="mt-5 space-y-2 text-sm text-ink-700">
                   {[
-                    "Documents & uploads, in one secure place",
-                    "Meraki AI review queue handled by your team",
-                    "Subscriptions, invoices, and reports",
+                    "One account for services, packages, and quotes",
+                    "Track requests and order history",
+                    "Manage subscriptions when activated",
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-2.5">
                       <Icon
@@ -161,28 +180,27 @@ export default function LoginPage() {
 
                 <div className="mt-6 flex flex-col sm:flex-row gap-3">
                   <Button
-                    href="/contact?intent=portal-access"
+                    href="/contact?intent=marketplace-account"
                     variant="primary"
                     size="md"
                     fullWidth
                   >
-                    Request portal access
+                    Request marketplace account
                   </Button>
                   <Button
-                    href="/portal"
+                    href="/marketplace"
                     variant="ghost"
                     size="md"
                     fullWidth
                   >
-                    Preview the portal
+                    Browse marketplace
                   </Button>
                 </div>
 
                 <p className="mt-5 pt-5 border-t border-hairline text-[11px] text-ink-500 leading-relaxed">
-                  Portal capabilities below are planned features. Live
-                  authentication, real document storage, and integrations
-                  activate when the portal is released. No fake credentials are
-                  accepted.
+                  Marketplace Login is for service purchases and package
+                  requests. Meraki AI Portal is a separate subscription
+                  workspace and is accessed from the Meraki AI page.
                 </p>
               </div>
             </div>
@@ -190,25 +208,23 @@ export default function LoginPage() {
         </Container>
       </Section>
 
+      {/* WHAT YOU CAN DO */}
       <Section bg="paper" tone="default">
         <Container size="pro">
           <div className="max-w-3xl">
-            <p className="text-eyebrow uppercase text-bronze-700">
-              Planned portal capabilities
-            </p>
+            <Eyebrow>What you can do with Marketplace Login</Eyebrow>
             <h2 className="mt-3 text-display-lg text-ink-900 text-balance">
-              What the Meraki portal will do for you.
+              One account for marketplace services and packages.
             </h2>
             <p className="mt-5 text-lead text-ink-500">
-              Designed for UAE businesses on Meraki packages — a secure
-              workspace where documents, compliance, and the Meraki team come
-              together. None of these capabilities are live yet; they&apos;re
-              the roadmap we&apos;re building toward.
+              Designed for UAE businesses buying Meraki services. Login or
+              signup is required before submitting requests, purchasing
+              packages, or starting subscriptions.
             </p>
           </div>
 
           <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {PORTAL_CAPABILITIES.map((cap) => (
+            {MARKETPLACE_CAPABILITIES.map((cap) => (
               <div
                 key={cap.label}
                 className="rounded-card bg-paper border border-border p-6 hover:border-bronze-300 hover:shadow-soft transition"
@@ -225,29 +241,80 @@ export default function LoginPage() {
               </div>
             ))}
           </div>
+        </Container>
+      </Section>
 
-          <div className="mt-14 rounded-card bg-cream border border-hairline p-7 md:p-9">
-            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-5">
+      {/* BEFORE YOU BUY */}
+      <Section bg="cream" tone="default">
+        <Container size="pro">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+            <div className="lg:col-span-5">
+              <Eyebrow>Before you buy or request services</Eyebrow>
+              <h2 className="mt-3 text-display-lg text-ink-900 text-balance">
+                Four steps from request to confirmed engagement.
+              </h2>
+              <p className="mt-5 text-body text-ink-500">
+                The structure is the same whether you choose a one-time
+                service, a monthly package, or a custom quote.
+              </p>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Button href="/packages" variant="primary" size="md">
+                  View Packages
+                </Button>
+                <Button href="/marketplace" variant="ghost" size="md">
+                  Browse Services
+                </Button>
+              </div>
+            </div>
+            <ol className="lg:col-span-7 rounded-card border border-hairline bg-paper p-6 md:p-8 space-y-5">
+              {FLOW_STEPS.map((s) => (
+                <li key={s.title} className="flex items-start gap-5">
+                  <span className="text-eyebrow uppercase font-bold text-bronze-700 shrink-0 mt-1 w-10">
+                    {s.step}
+                  </span>
+                  <div className="flex-1 min-w-0">
+                    <p className="text-base font-bold text-ink-900">
+                      {s.title}
+                    </p>
+                    <p className="mt-1.5 text-body-sm text-ink-500 leading-relaxed">
+                      {s.body}
+                    </p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </Container>
+      </Section>
+
+      {/* MERAKI AI PORTAL IS SEPARATE */}
+      <Section bg="paper" tone="default">
+        <Container size="pro">
+          <div className="rounded-card bg-cream border border-hairline p-7 md:p-9">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
               <div className="max-w-2xl">
-                <p className="text-eyebrow uppercase text-bronze-700">
-                  Meraki AI positioning
-                </p>
-                <p className="mt-2 text-display-sm text-ink-900">
-                  AI checks. Meraki verifies. Your records stay ready.
-                </p>
-                <p className="mt-3 text-body-sm text-ink-500">
-                  Meraki AI is a workflow and review-assist layer connected to
-                  Meraki&apos;s professional services — not a replacement for
-                  accounting software or accountants. Built beyond automation.
-                  Designed for compliance.
+                <Eyebrow>Meraki AI Portal is separate</Eyebrow>
+                <h2 className="mt-3 text-display-md text-ink-900 text-balance">
+                  AI-assisted finance review lives in its own workspace.
+                </h2>
+                <p className="mt-4 text-body-sm text-ink-500 leading-relaxed">
+                  Marketplace Login is for service purchases and package
+                  requests. Meraki AI Portal is a separate subscription
+                  workspace for AI-assisted document, invoice, tax, compliance,
+                  and workflow review. Separate subscription required. Speak to
+                  Meraki to request access.
                 </p>
               </div>
               <div className="flex flex-wrap gap-3 shrink-0">
                 <Button href="/meraki-ai" variant="primary" size="md">
                   Explore Meraki AI
                 </Button>
-                <Button href="/packages" variant="ghost" size="md">
-                  View Packages
+                <Button
+                  href="/contact?intent=meraki-ai-access"
+                  variant="ghost"
+                  size="md"
+                >
+                  Request AI Access
                 </Button>
               </div>
             </div>

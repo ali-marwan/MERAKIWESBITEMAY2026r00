@@ -6,7 +6,7 @@ import { buildMetadata } from "@/lib/seo";
 
 export const metadata = buildMetadata({
   title: "Portal · Dashboard",
-  description: "Meraki client portal dashboard preview.",
+  description: "Meraki AI Portal dashboard preview.",
   path: "/portal/dashboard",
   noIndex: true,
 });
