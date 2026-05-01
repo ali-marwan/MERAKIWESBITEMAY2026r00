@@ -74,7 +74,7 @@ const INTEGRATIONS = [
 export default function MerakiAIPage() {
   return (
     <>
-      <Section bg="paper" tone="default" className="pt-20 md:pt-28">
+      <Section bg="paper" tone="default">
         <Container size="pro">
           <div className="grid grid-cols-1 lg:grid-cols-[1.15fr_1fr] gap-12 items-center">
             <div>

@@ -19,7 +19,7 @@ export const metadata = buildMetadata({
 export default function ServicesPage() {
   return (
     <>
-      <Section bg="paper" tone="default" className="pt-20 md:pt-28">
+      <Section bg="paper" tone="default">
         <Container size="pro">
           <div className="max-w-3xl">
             <Pill tone="bronze">Services</Pill>

@@ -56,7 +56,7 @@ export default function InsightsArticlePage({
 
   return (
     <>
-      <Section bg="paper" tone="default" className="pt-20 md:pt-28">
+      <Section bg="paper" tone="default">
         <Container size="narrow">
           <Link
             href="/insights"

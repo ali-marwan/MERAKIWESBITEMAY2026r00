@@ -8,7 +8,7 @@ import { Icon } from "@/components/ui/Icon";
 
 export function Hero() {
   return (
-    <Section bg="paper" tone="hero" className="pt-12 pb-20 lg:pt-0 lg:pb-0">
+    <Section bg="paper" tone="hero" className="pt-8 pb-12 lg:pt-0 lg:pb-0">
       <div
         aria-hidden="true"
         className="absolute inset-0 pointer-events-none bg-noise opacity-60"
