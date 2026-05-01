@@ -16,7 +16,7 @@ import { buildMetadata } from "@/lib/seo";
 export const metadata = buildMetadata({
   title: "Meraki AI",
   description:
-    "UAE Finance, Tax & Compliance Workflows, Assisted by AI and Reviewed by Professionals. Capture documents, organize records, support VAT and tax checks, and prepare for e-invoicing readiness — without replacing your accounting system.",
+    "UAE Finance, Tax & Compliance Workflows, Assisted by AI and Reviewed by Professionals. Capture documents, organize records, support VAT and tax checks, and prepare for e-invoicing readiness — designed to work alongside existing accounting systems, not to replace them.",
   path: "/meraki-ai",
 });
 
@@ -94,6 +94,10 @@ export default function MerakiAIPage() {
               <Pill tone="ink" className="mt-7">
                 AI checks. Meraki verifies.
               </Pill>
+              <p className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-bronze-700">
+                <Icon name="shield" className="h-4 w-4" />
+                Portal access included with an eligible Meraki subscription.
+              </p>
               <div className="mt-9 flex flex-wrap gap-3">
                 <Button href="/portal" variant="primary" size="md">
                   Explore Portal
@@ -198,6 +202,60 @@ export default function MerakiAIPage() {
 
       <Section bg="cream">
         <Container size="pro">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            <div className="lg:col-span-5">
+              <Eyebrow>Capture from anywhere</Eyebrow>
+              <h2 className="mt-4 text-display-lg text-ink-900 text-balance">
+                Documents arrive everywhere. Capture lives in one place.
+              </h2>
+              <p className="mt-5 text-lead text-ink-500">
+                Invoices, receipts, statements, and contracts arrive across
+                email, WhatsApp, supplier portals, and paper handovers. Meraki
+                AI brings them into a single capture surface so nothing is
+                missed and everything is accountant-ready.
+              </p>
+              <p className="mt-4 text-sm text-ink-500">
+                Email forwarding and WhatsApp document capture are planned
+                channels — current capture is via portal upload, with email
+                forwarding rolling out next.
+              </p>
+            </div>
+            <ul className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <CaptureChannel
+                icon="upload"
+                title="Portal upload"
+                status="Available"
+                tone="success"
+                body="Drop documents into the Meraki portal. AI extracts fields and routes to review."
+              />
+              <CaptureChannel
+                icon="email"
+                title="Email forwarding"
+                status="Rolling out"
+                tone="warning"
+                body="Forward supplier invoices to a dedicated Meraki address. Captured, classified, and queued automatically."
+              />
+              <CaptureChannel
+                icon="whatsapp"
+                title="WhatsApp capture"
+                status="Planned"
+                tone="default"
+                body="Send a photo or PDF over WhatsApp; the document is captured into the same review queue."
+              />
+              <CaptureChannel
+                icon="phone"
+                title="Future Meraki app"
+                status="Planned"
+                tone="default"
+                body="Mobile capture for receipts, expense logs, and on-the-go business records."
+              />
+            </ul>
+          </div>
+        </Container>
+      </Section>
+
+      <Section bg="paper">
+        <Container size="pro">
           <Eyebrow>The workflow</Eyebrow>
           <h2 className="mt-4 text-display-lg text-ink-900 text-balance max-w-2xl">
             Upload. Capture. Review. Approve.
@@ -208,7 +266,7 @@ export default function MerakiAIPage() {
         </Container>
       </Section>
 
-      <Section bg="paper">
+      <Section bg="cream">
         <Container size="pro">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
             <div className="lg:col-span-6">
@@ -246,7 +304,7 @@ export default function MerakiAIPage() {
         </Container>
       </Section>
 
-      <Section bg="cream">
+      <Section bg="paper">
         <Container size="pro">
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12">
             <div className="max-w-2xl">
@@ -267,7 +325,7 @@ export default function MerakiAIPage() {
         </Container>
       </Section>
 
-      <Section bg="paper">
+      <Section bg="cream">
         <Container size="pro">
           <Eyebrow>Future integrations</Eyebrow>
           <h2 className="mt-4 text-display-lg text-ink-900 text-balance max-w-3xl">
@@ -292,9 +350,9 @@ export default function MerakiAIPage() {
         </Container>
       </Section>
 
-      <Section bg="cream">
+      <Section bg="paper">
         <Container size="pro">
-          <div className="rounded-card bg-paper border border-hairline p-8 md:p-10 max-w-4xl">
+          <div className="rounded-card bg-cream border border-hairline p-8 md:p-10 max-w-4xl">
             <Eyebrow>Future Meraki app</Eyebrow>
             <h2 className="mt-3 text-display-md text-ink-900 text-balance">
               The Meraki app is coming.
@@ -321,5 +379,41 @@ export default function MerakiAIPage() {
         tertiaryCta={{ label: "Speak to Our Team", href: "/contact" }}
       />
     </>
+  );
+}
+
+function CaptureChannel({
+  icon,
+  title,
+  status,
+  tone,
+  body,
+}: {
+  icon: "upload" | "email" | "whatsapp" | "phone";
+  title: string;
+  status: string;
+  tone: "success" | "warning" | "default";
+  body: string;
+}) {
+  const toneClasses = {
+    success: "bg-success/10 text-success border border-success/20",
+    warning: "bg-warning/10 text-warning border border-warning/20",
+    default: "bg-ink-100 text-ink-500 border border-hairline",
+  };
+  return (
+    <li className="rounded-card bg-paper border border-hairline p-5">
+      <div className="flex items-start justify-between gap-3">
+        <span className="h-10 w-10 rounded-xl bg-cream border border-hairline text-bronze-700 flex items-center justify-center shrink-0">
+          <Icon name={icon} className="h-5 w-5" />
+        </span>
+        <span
+          className={`rounded-pill px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider ${toneClasses[tone]}`}
+        >
+          {status}
+        </span>
+      </div>
+      <p className="mt-4 text-base font-semibold text-ink-900">{title}</p>
+      <p className="mt-1.5 text-body-sm text-ink-500 leading-relaxed">{body}</p>
+    </li>
   );
 }

@@ -65,16 +65,28 @@ export function Button(props: ButtonProps) {
   } = props;
   const cls = cn(classes(variant, size, fullWidth), className);
   if ("href" in rest && rest.href) {
-    const { href, ...linkRest } = rest as ButtonAsLinkProps;
+    // `disabled` is not a valid attribute on <a>/<Link>; strip it from the
+    // spread and translate it to aria-disabled + pointer-events-none so the
+    // anchor still looks/behaves disabled.
+    const {
+      href,
+      disabled,
+      ...anchorRest
+    } = rest as ButtonAsLinkProps & { disabled?: boolean };
+    const disabledClass = disabled
+      ? "opacity-50 pointer-events-none cursor-not-allowed"
+      : "";
     const isExternal = /^https?:\/\//.test(href);
     if (isExternal) {
       return (
         <a
-          href={href}
+          href={disabled ? undefined : href}
           target="_blank"
           rel="noopener noreferrer"
-          className={cls}
-          {...linkRest}
+          className={cn(cls, disabledClass)}
+          aria-disabled={disabled || undefined}
+          tabIndex={disabled ? -1 : undefined}
+          {...anchorRest}
         >
           {iconLeft}
           {children}
@@ -83,7 +95,13 @@ export function Button(props: ButtonProps) {
       );
     }
     return (
-      <Link href={href} className={cls} {...linkRest}>
+      <Link
+        href={disabled ? "#" : href}
+        className={cn(cls, disabledClass)}
+        aria-disabled={disabled || undefined}
+        tabIndex={disabled ? -1 : undefined}
+        {...anchorRest}
+      >
         {iconLeft}
         {children}
         {iconRight}

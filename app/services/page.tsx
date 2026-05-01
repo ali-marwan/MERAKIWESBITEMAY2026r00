@@ -32,6 +32,21 @@ export default function ServicesPage() {
               running a UAE business. Together they make a single connected
               business support system.
             </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Button href="/marketplace" variant="primary" size="md">
+                Browse marketplace
+              </Button>
+              <Button
+                href="/marketplace#tax-risk-assessment"
+                variant="ghost"
+                size="md"
+              >
+                Request Risk Assessment
+              </Button>
+              <Button href="/contact" variant="ghost" size="md">
+                Speak to our team
+              </Button>
+            </div>
           </div>
         </Container>
       </Section>
@@ -113,12 +128,12 @@ export default function ServicesPage() {
               Wording matters. Compliance matters more.
             </h2>
             <p className="mt-4 text-body text-ink-500 max-w-3xl">
-              Meraki provides support, coordination, and review. We do not act as an
-              immigration or visa processing firm, do not provide legal advice, and
-              do not guarantee authority approvals. Final tax treatment, filing
-              position, and compliance decisions may require professional review
-              based on documents and business circumstances. Services are subject
-              to required documents and authority portal requirements.
+              Meraki provides support, coordination, and review. We do not act as
+              an immigration or visa processing firm and we do not provide legal
+              advice. Authority approvals are subject to FTA portal review,
+              required documents, and applicable UAE regulations. Final tax
+              treatment, filing position, and compliance decisions may require
+              professional review based on documents and business circumstances.
             </p>
           </div>
         </Container>

@@ -3,6 +3,7 @@ import {
   MONTHLY_ACCOUNTING_PACKAGES,
   ONE_TIME_SERVICES,
   MERAKI_AI_PACKAGES,
+  CUSTOM_SOLUTIONS,
 } from "@/data/packages";
 
 export const MARKETPLACE_CATEGORIES: MarketplaceCategory[] = [
@@ -36,12 +37,19 @@ export const MARKETPLACE_CATEGORIES: MarketplaceCategory[] = [
     description:
       "AI-assisted document workflow plans, with optional professional review.",
   },
+  {
+    id: "custom-solutions",
+    label: "Custom Solutions",
+    description:
+      "Bespoke scopes for multi-entity, industry-specific, or larger operations — built around your business.",
+  },
 ];
 
 export const MARKETPLACE_ITEMS: Package[] = [
   ...MONTHLY_ACCOUNTING_PACKAGES,
   ...ONE_TIME_SERVICES,
   ...MERAKI_AI_PACKAGES,
+  ...CUSTOM_SOLUTIONS,
 ];
 
 export const CUSTOM_QUOTE_ITEM = {

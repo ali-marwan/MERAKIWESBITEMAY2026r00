@@ -328,10 +328,34 @@ export const MERAKI_AI_PACKAGES: Package[] = [
   },
 ];
 
+export const CUSTOM_SOLUTIONS: Package[] = [
+  {
+    id: "custom-quote",
+    slug: "custom-quote",
+    name: "Custom Solution",
+    category: "custom-solutions",
+    bestFor:
+      "Multi-entity setups, larger operations, industry-specific finance workflows, or scopes that don't fit a standard package.",
+    priceAED: null,
+    priceLabel: "Custom quote",
+    billing: "custom",
+    badge: "Talk to our team",
+    includes: [
+      "Discovery conversation with our team",
+      "Scope and pricing tailored to your business",
+      "Bundled accounting, tax, AI, and reporting where useful",
+      "Defined onboarding plan and timeline",
+    ],
+    primaryCta: { label: "Request a quote", href: "/contact?intent=custom-quote" },
+    secondaryCta: { label: "WhatsApp us", href: "https://wa.me/971561812928" },
+  },
+];
+
 export const ALL_PACKAGES: Package[] = [
   ...MONTHLY_ACCOUNTING_PACKAGES,
   ...ONE_TIME_SERVICES,
   ...MERAKI_AI_PACKAGES,
+  ...CUSTOM_SOLUTIONS,
 ];
 
 export function getPackageBySlug(slug: string): Package | undefined {

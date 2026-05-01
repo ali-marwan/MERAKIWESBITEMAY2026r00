@@ -16,13 +16,23 @@ export function ServicePillars() {
               Everything you need to start, run, and grow — under one standard.
             </h2>
           </div>
-          <Link
-            href="/services"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-bronze-700 hover:text-bronze-600"
-          >
-            View all services
-            <Icon name="arrow" className="h-4 w-4" />
-          </Link>
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-3 text-sm font-semibold">
+            <Link
+              href="/marketplace#tax-risk-assessment"
+              className="inline-flex items-center gap-2 text-bronze-700 hover:text-bronze-600"
+            >
+              Request a Risk Assessment
+              <Icon name="arrow" className="h-4 w-4" />
+            </Link>
+            <span className="hidden sm:inline-block h-4 w-px bg-hairline" />
+            <Link
+              href="/services"
+              className="inline-flex items-center gap-2 text-ink-700 hover:text-ink-900"
+            >
+              View all services
+              <Icon name="arrow" className="h-4 w-4" />
+            </Link>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5">

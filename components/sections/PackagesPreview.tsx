@@ -53,6 +53,13 @@ export function PackagesPreview() {
           <Button href="/packages" variant="ghost" size="md">
             View Packages
           </Button>
+          <Button
+            href="/marketplace#tax-risk-assessment"
+            variant="ghost"
+            size="md"
+          >
+            Request Risk Assessment
+          </Button>
         </div>
       </Container>
     </Section>

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { Button, ArrowRightIcon } from "@/components/ui/Button";
@@ -34,6 +35,10 @@ export function Hero() {
               <span className="h-px w-8 bg-bronze-500" />
               One system. One team. One standard.
             </div>
+            <p className="mt-3 text-sm text-ink-500 max-w-xl">
+              Not just bookkeeping. Not an ERP. A connected business support
+              system — with AI-assisted workflows and professional review built in.
+            </p>
 
             <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-3xl">
               <CtaCard
@@ -91,7 +96,7 @@ function CtaCard({
   primary?: boolean;
 }) {
   return (
-    <a
+    <Link
       href={href}
       className={
         primary
@@ -128,7 +133,7 @@ function CtaCard({
       >
         {micro}
       </p>
-    </a>
+    </Link>
   );
 }
 

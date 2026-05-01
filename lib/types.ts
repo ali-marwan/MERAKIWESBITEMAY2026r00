@@ -43,7 +43,8 @@ export type PackageCategory =
   | "business-setup"
   | "e-invoicing"
   | "meraki-ai"
-  | "one-time";
+  | "one-time"
+  | "custom-solutions";
 
 export interface MarketplaceCategory {
   id: string;
@@ -71,7 +72,8 @@ export type BlogCategory =
   | "Accounting"
   | "Business Setup"
   | "Cash Flow"
-  | "Meraki AI";
+  | "Meraki AI"
+  | "Compliance Mistakes";
 
 export interface Faq {
   q: string;

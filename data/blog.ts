@@ -315,6 +315,81 @@ Meraki's cash-flow support is built around this structure. Receivable and payabl
   },
 
   {
+    slug: "common-compliance-mistakes-uae-businesses-make",
+    title: "Common Compliance Mistakes UAE Businesses Make (And How to Avoid Them)",
+    excerpt:
+      "The most frequent compliance slips we see in UAE SMEs — what causes them, why they get expensive, and the simple structural fixes that prevent them.",
+    category: "Compliance Mistakes",
+    publishedAt: "2026-04-29",
+    author: "Meraki Editorial",
+    readingMinutes: 7,
+    tags: ["UAE", "Compliance", "VAT", "Corporate Tax", "SME"],
+    cta: { label: "Request a compliance review", href: "/marketplace#tax-risk-assessment" },
+    body: `Compliance mistakes are rarely dramatic. They are usually small, quiet patterns that compound across months until a filing window, an audit, or a partner request brings them into view all at once. The good news is that the same handful of mistakes show up across UAE SMEs, regardless of industry. Knowing what they look like early is most of the prevention.
+
+This article walks through the compliance patterns we see most often and the structural fixes that prevent them. It is not legal or tax advice. Final tax treatment, filing position, and compliance decisions may require professional review based on documents and business circumstances.
+
+## 1. Treating bookkeeping as a year-end project
+
+The single most common pattern. Records are touched lightly during the year — a few entries here, a missing month there — and then reconstructed in the weeks before filing. The cost is rarely visible at the time. It shows up later as missed input VAT, mis-categorized expenses, and reports that nobody trusts.
+
+The structural fix is monthly close discipline: every transaction recorded against a defined chart of accounts, every reconciliation closed before month-end, and every supplier invoice reviewed before posting. This is exactly the cadence Meraki builds into monthly accounting subscriptions.
+
+## 2. Storing tax invoices in inboxes and WhatsApp threads
+
+Tax invoices arrive everywhere — email attachments, WhatsApp PDFs, supplier portals, paper handovers. Without a structured capture flow, a percentage of them never make it into the books. Five missing invoices a month becomes sixty missing invoices a year, and they tend to be the larger ones, because they came from the suppliers most likely to send them through informal channels.
+
+The fix is a single capture surface. Email forwarding, document upload, WhatsApp capture (planned), and direct supplier portal sync — all routed into one workflow that classifies, flags, and stores. AI-assisted capture is what makes this practical for SMEs without enterprise budgets.
+
+## 3. Inconsistent supplier and customer master data
+
+Suppliers entered three different ways. Customer records missing TRNs. Tax codes applied inconsistently across line items. None of these create immediate problems. They create future problems — at filing, at audit, when e-invoicing requirements tighten.
+
+The fix is a one-time master-data cleanup followed by a monthly hygiene check. Five minutes per month catches the drift before it accumulates.
+
+## 4. Missing or wrong TRN on tax invoices
+
+We see this on supplier invoices and on a business's own customer-facing invoices. The TRN is missing, mistyped, or rendered correctly in PDF but missing in the email body. From a tax invoice compliance perspective, a TRN that fails portal lookup is treated as if it isn't there.
+
+The fix is operational: build a supplier TRN check into supplier onboarding, and run a periodic spot-check of your own invoice template across the formats your customers actually receive (PDF, email, printed).
+
+## 5. Confusing tax point with invoice date
+
+Advance payments treated as ordinary sales. Milestone billings dated wrong. Credit notes dated in the wrong return period. Each of these can shift VAT into the wrong filing — sometimes by months. The pattern shows up in industries with deposits, retainers, and project-based work.
+
+The fix is review, not software. A monthly walk-through that asks "do these invoice dates correspond to the actual tax point?" surfaces issues before they cross a return boundary.
+
+## 6. No tax compliance calendar
+
+VAT filing dates. Corporate Tax milestones. Trade license renewals. Corporate document expiries. Each of these has a deadline and a preparation window. Many SMEs operate without a single calendar that brings them all together. Predictably, they miss preparation windows and end up rushing.
+
+The fix is one calendar with all dates, all responsible parties, and all preparation milestones — visible months in advance, not days. Meraki sets this up as part of compliance package onboarding.
+
+## 7. Treating Corporate Tax as identical to VAT
+
+VAT and Corporate Tax demand different records, different classifications, and different review cadences. Businesses that build a strong VAT process and assume Corporate Tax inherits it sometimes find their classifications need rework when the Corporate Tax window opens.
+
+The fix is treating Corporate Tax readiness as its own workstream — expense classification, related-party documentation, and supporting agreements maintained separately, not as a side-effect of VAT bookkeeping.
+
+## 8. No process for supplier invoice review
+
+Most SMEs post supplier invoices into the books without reviewing them. The supplier raises an invoice; finance posts it; payment goes out. If the supplier made an error, that error is now in your records.
+
+A simple supplier invoice review step before posting catches a meaningful percentage of issues at the right moment, when there is still time to ask for a corrected document or a credit note.
+
+## 9. Decisions made under deadline pressure
+
+The pattern that ties all the others together. Compliance decisions made in the days before a filing window are necessarily rushed, narrow, and incomplete. The same decisions made calmly across the year are better decisions.
+
+The fix is structural cadence: monthly close, quarterly review, pre-window readiness check. None of these are dramatic. All of them prevent the pattern.
+
+## What good looks like
+
+A compliance posture that holds up under scrutiny has six visible properties: monthly bookkeeping close, single document capture surface, clean master data, a tax compliance calendar, supplier invoice review, and quarterly review with whoever does your tax work. None of these require enterprise software. All of them require structure and discipline.
+
+Meraki provides this as a connected system rather than as scattered services. If you want a structured external read on where your compliance posture currently stands, request an Accounting & Tax Risk Assessment — it is the cleanest place to start.`,
+  },
+  {
     slug: "ai-assisted-finance-workflows-for-uae-smes",
     title: "How AI-Assisted Finance Workflows Can Help SMEs Stay Organized",
     excerpt:
