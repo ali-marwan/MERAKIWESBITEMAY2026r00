@@ -3,11 +3,10 @@ import { Section } from "@/components/ui/Section";
 import { Pill } from "@/components/ui/Pill";
 import { Eyebrow } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
-import { Icon } from "@/components/ui/Icon";
+import { Icon, type IconName } from "@/components/ui/Icon";
 import { AIWorkflowMockup } from "@/components/ai/AIWorkflowMockup";
 import { PortalPreviewCard } from "@/components/ai/PortalPreviewCard";
 import { PackageCard } from "@/components/packages/PackageCard";
-import { FeatureCard } from "@/components/shared/FeatureCard";
 import { ContactCTA } from "@/components/shared/ContactCTA";
 import { FinalCTA } from "@/components/sections/FinalCTA";
 import { MERAKI_AI_PACKAGES } from "@/data/packages";
@@ -16,40 +15,77 @@ import { buildMetadata } from "@/lib/seo";
 export const metadata = buildMetadata({
   title: "Meraki AI",
   description:
-    "UAE Finance, Tax & Compliance Workflows, Assisted by AI and Reviewed by Professionals. Capture documents, organize records, support VAT and tax checks, and prepare for e-invoicing readiness — designed to work alongside existing accounting systems, not to replace them.",
+    "Meraki AI is the intelligence and workflow layer for UAE finance, tax, and compliance. AI checks. Meraki verifies. Your records stay ready — built beyond automation, designed for compliance.",
   path: "/meraki-ai",
 });
 
-const HELPS_WITH = [
+const HOW_IT_WORKS = [
   {
-    title: "Invoice & receipt intelligence",
-    body: "Capture and extract data from invoices and receipts with risk flags for missing TRN, dates, or VAT issues.",
-    icon: "receipt" as const,
+    step: "01",
+    title: "Upload or connect documents",
+    body: "Send invoices, receipts, statements, and supplier files to a single capture surface — portal upload today, more channels rolling out.",
+    icon: "upload" as IconName,
   },
   {
-    title: "VAT & tax checks",
-    body: "First-pass VAT and tax classification with anomaly detection — handed off to professional review.",
-    icon: "shield" as const,
+    step: "02",
+    title: "AI checks and organizes",
+    body: "Fields are extracted, classified, and screened for missing TRN, duplicates, VAT issues, and other risk flags.",
+    icon: "ai" as IconName,
   },
   {
-    title: "Expense classification",
-    body: "Cash-in / cash-out tracking with category suggestions that get more accurate over time.",
-    icon: "manage" as const,
+    step: "03",
+    title: "Meraki team verifies",
+    body: "Flagged items are reviewed by Meraki professionals. Judgment calls and edge cases are handled by people, not models.",
+    icon: "shield" as IconName,
+  },
+  {
+    step: "04",
+    title: "You receive ready records",
+    body: "Cleaner records, structured workflows, and compliance-ready files — prepared for your accountant, auditor, or filing partner.",
+    icon: "check" as IconName,
+  },
+];
+
+const USE_CASES: Array<{ title: string; body: string; icon: IconName }> = [
+  {
+    title: "Customer invoice review",
+    body: "Outgoing invoices checked for TRN, VAT treatment, dates, and missing details before they reach the customer.",
+    icon: "receipt",
+  },
+  {
+    title: "Supplier invoice checking",
+    body: "Incoming bills screened for duplicates, missing TRN, mismatched totals, and unclear tax positions.",
+    icon: "doc",
+  },
+  {
+    title: "VAT compliance preparation",
+    body: "First-pass VAT classification with anomaly flags — handed to Meraki professionals for verification.",
+    icon: "shield",
+  },
+  {
+    title: "Corporate tax file preparation",
+    body: "Records organized into a clean Corporate Tax file structure, ready for accountant review and filing.",
+    icon: "briefcase",
   },
   {
     title: "E-invoicing readiness",
-    body: "Cleaner records and structured workflows that prepare your business for digital invoicing exchanges.",
-    icon: "doc" as const,
+    body: "Cleaner data and structured workflows that prepare your business for digital invoicing exchanges.",
+    icon: "bolt",
   },
   {
-    title: "Document organization",
-    body: "Single source of truth for business records — retrievable in minutes when partners or authorities ask.",
-    icon: "layers" as const,
+    title: "Expense classification",
+    body: "Cash-in / cash-out tracking with category suggestions — refined by Meraki review and improved over time.",
+    icon: "manage",
   },
   {
-    title: "Monthly summaries",
+    title: "Monthly document review",
+    body: "Document pipelines kept current. Missing files, duplicates, and unclassified items surfaced each month.",
+    icon: "calendar",
+  },
+  {
+    title: "Management reporting support",
     body: "First-draft monthly summaries reviewed and refined by Meraki — faster reports, less formatting work.",
-    icon: "chart" as const,
+    icon: "chart",
   },
 ];
 
@@ -74,40 +110,44 @@ const INTEGRATIONS = [
 export default function MerakiAIPage() {
   return (
     <>
-      <Section bg="paper" tone="default">
+      {/* HERO */}
+      <Section bg="paper" tone="default" className="pt-20 md:pt-28">
         <Container size="pro">
-          <div className="grid grid-cols-1 lg:grid-cols-[1.15fr_1fr] gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-[1.25fr_1fr] gap-12 lg:gap-16 items-center">
             <div>
-              <Pill tone="bronze" dot>
-                Meraki AI · UAE Finance Workflow
-              </Pill>
+              <div className="flex flex-wrap items-center gap-2.5">
+                <Pill tone="bronze" dot>
+                  Meraki AI · UAE Finance, Tax &amp; Compliance Layer
+                </Pill>
+                <Pill tone="ink">AI checks. Meraki verifies.</Pill>
+              </div>
               <h1 className="mt-6 text-display-xl text-ink-900 text-balance">
-                UAE Finance, Tax & Compliance Workflows, Assisted by AI and
-                Reviewed by Professionals.
+                AI-assisted UAE finance, tax &amp; compliance.
               </h1>
-              <p className="mt-6 text-lead text-ink-500 max-w-2xl">
-                Meraki AI helps businesses capture documents, organize records,
-                detect VAT and tax risks, prepare for e-invoicing readiness,
-                and keep finance workflows accountant-ready — without replacing
-                existing accounting systems.
+              <p className="mt-3 text-sm font-semibold uppercase tracking-wider text-bronze-700">
+                Built beyond automation · Designed for compliance
               </p>
-              <Pill tone="ink" className="mt-7">
-                AI checks. Meraki verifies.
-              </Pill>
-              <p className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-bronze-700">
-                <Icon name="shield" className="h-4 w-4" />
+              <p className="mt-6 text-lead text-ink-500 max-w-2xl">
+                Meraki AI checks, organizes, and prepares your invoices,
+                receipts, and records. Meraki professionals verify what
+                matters — so your business stays accountant-ready,
+                audit-ready, and compliance-ready, without replacing your
+                accounting software.
+              </p>
+              <p className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-ink-500">
+                <Icon name="shield" className="h-4 w-4 text-bronze-700" />
                 Portal access included with an eligible Meraki subscription.
               </p>
               <div className="mt-9 flex flex-wrap gap-3">
-                <Button href="/portal" variant="primary" size="md">
-                  Explore Portal
+                <Button href="/contact?topic=ai-demo" variant="primary" size="md">
+                  Request AI Demo
                 </Button>
                 <Button
                   href="/marketplace?category=meraki-ai"
                   variant="ghost"
                   size="md"
                 >
-                  View AI Packages
+                  Explore Packages
                 </Button>
                 <Button href="/contact" variant="ghost" size="md">
                   Speak to Our Team
@@ -121,22 +161,24 @@ export default function MerakiAIPage() {
         </Container>
       </Section>
 
+      {/* WHAT MERAKI AI IS */}
       <Section bg="cream">
         <Container size="pro">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
             <div className="lg:col-span-5">
               <Eyebrow>What Meraki AI is</Eyebrow>
               <h2 className="mt-4 text-display-lg text-ink-900 text-balance">
-                Not accounting software. A workflow and intelligence layer.
+                An intelligence and workflow layer — connected to Meraki
+                professional services.
               </h2>
               <p className="mt-5 text-lead text-ink-500">
-                Meraki AI is a UAE business finance, tax, compliance,
-                invoicing, expense, and workflow assistant connected to
-                Meraki&apos;s professional services. It works as the
-                intelligence and review layer on top of your existing tools.
+                Meraki AI is not accounting software and not a replacement for
+                your accountant. It works as the intelligence and review layer
+                on top of your existing tools, supporting business owners,
+                accountants, and admin teams.
               </p>
               <p className="mt-4 text-body text-ink-500">
-                Built beyond automation. Designed for compliance.
+                One system. One team. One standard.
               </p>
             </div>
             <div className="lg:col-span-7">
@@ -179,30 +221,94 @@ export default function MerakiAIPage() {
         </Container>
       </Section>
 
+      {/* HOW IT WORKS — 4 STEPS */}
       <Section bg="paper">
+        <Container size="pro">
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12">
+            <div className="max-w-2xl">
+              <Eyebrow>How it works</Eyebrow>
+              <h2 className="mt-4 text-display-lg text-ink-900 text-balance">
+                A four-step workflow. AI checks. People verify.
+              </h2>
+              <p className="mt-5 text-body text-ink-500">
+                Documents move through capture, AI review, professional
+                verification, and delivery — so your records stay ready, every
+                month.
+              </p>
+            </div>
+            <Button href="/contact?topic=ai-demo" variant="ghost" size="md">
+              Request AI Demo
+            </Button>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+            {HOW_IT_WORKS.map((step) => (
+              <div
+                key={step.step}
+                className="relative rounded-card bg-paper border border-border shadow-soft p-6 hover:shadow-lift transition"
+              >
+                <div className="flex items-start justify-between">
+                  <span className="text-[10px] uppercase tracking-wider text-ink-300 font-bold">
+                    Step {step.step}
+                  </span>
+                  <span className="h-10 w-10 rounded-xl bg-bronze-50 border border-bronze-100 text-bronze-700 flex items-center justify-center">
+                    <Icon name={step.icon} className="h-5 w-5" />
+                  </span>
+                </div>
+                <p className="mt-5 text-base font-semibold text-ink-900">
+                  {step.title}
+                </p>
+                <p className="mt-2 text-body-sm text-ink-500 leading-relaxed">
+                  {step.body}
+                </p>
+              </div>
+            ))}
+          </div>
+          <p className="mt-6 text-xs text-ink-500 max-w-3xl">
+            Final output depends on documents provided, authority portal
+            requirements, and professional verification. Meraki AI does not
+            file on your behalf without professional review.
+          </p>
+        </Container>
+      </Section>
+
+      {/* USE CASES — 8 PRACTICAL SCENARIOS */}
+      <Section bg="cream">
         <Container size="pro">
           <div className="max-w-2xl">
             <Eyebrow>What it helps with</Eyebrow>
             <h2 className="mt-4 text-display-lg text-ink-900 text-balance">
-              Six everyday outcomes for UAE SMEs.
+              Eight practical use cases for UAE businesses.
             </h2>
+            <p className="mt-5 text-body text-ink-500">
+              Every output is reviewed before it counts. AI handles
+              first-level checking; Meraki professionals verify what matters.
+            </p>
           </div>
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {HELPS_WITH.map((h) => (
-              <FeatureCard
-                key={h.title}
-                icon={h.icon}
-                title={h.title}
-                body={h.body}
-              />
+          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+            {USE_CASES.map((u) => (
+              <div
+                key={u.title}
+                className="rounded-card border border-border bg-paper p-6 hover:shadow-soft transition"
+              >
+                <div className="h-10 w-10 rounded-xl bg-bronze-50 border border-bronze-100 text-bronze-700 flex items-center justify-center">
+                  <Icon name={u.icon} className="h-5 w-5" />
+                </div>
+                <p className="mt-5 text-base font-semibold text-ink-900">
+                  {u.title}
+                </p>
+                <p className="mt-2 text-body-sm text-ink-500 leading-relaxed">
+                  {u.body}
+                </p>
+              </div>
             ))}
           </div>
         </Container>
       </Section>
 
-      <Section bg="cream">
+      {/* CAPTURE FROM ANYWHERE */}
+      <Section bg="paper">
         <Container size="pro">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
             <div className="lg:col-span-5">
               <Eyebrow>Capture from anywhere</Eyebrow>
               <h2 className="mt-4 text-display-lg text-ink-900 text-balance">
@@ -233,7 +339,7 @@ export default function MerakiAIPage() {
                 title="Email forwarding"
                 status="Rolling out"
                 tone="warning"
-                body="Forward supplier invoices to a dedicated Meraki address. Captured, classified, and queued automatically."
+                body="Forward supplier invoices to a dedicated Meraki address. Captured, classified, and queued."
               />
               <CaptureChannel
                 icon="whatsapp"
@@ -254,35 +360,45 @@ export default function MerakiAIPage() {
         </Container>
       </Section>
 
-      <Section bg="paper">
+      {/* WORKFLOW VISUAL */}
+      <Section bg="cream">
         <Container size="pro">
-          <Eyebrow>The workflow</Eyebrow>
-          <h2 className="mt-4 text-display-lg text-ink-900 text-balance max-w-2xl">
-            Upload. Capture. Review. Approve.
-          </h2>
-          <div className="mt-10">
+          <div className="max-w-2xl">
+            <Eyebrow>The workflow, visualized</Eyebrow>
+            <h2 className="mt-4 text-display-lg text-ink-900 text-balance">
+              Upload. Capture. Review. Approve.
+            </h2>
+            <p className="mt-5 text-body text-ink-500">
+              A look at what moves through Meraki AI — captured documents,
+              extracted fields with risk flags, and a Meraki review queue.
+            </p>
+          </div>
+          <div className="mt-12">
             <AIWorkflowMockup />
           </div>
+          <p className="mt-6 text-xs text-ink-500 max-w-3xl">
+            Sample data shown for illustration only. Live integrations and
+            channels will be confirmed with each release.
+          </p>
         </Container>
       </Section>
 
-      <Section bg="cream">
+      {/* AI + HUMAN VERIFICATION */}
+      <Section bg="paper">
         <Container size="pro">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-            <div className="lg:col-span-6">
-              <Eyebrow>Where AI does not replace professionals</Eyebrow>
-              <h2 className="mt-3 text-display-lg text-ink-900 text-balance">
-                AI is a layer. People still do the judgment work.
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+            <div className="lg:col-span-5">
+              <Eyebrow>AI + human verification</Eyebrow>
+              <h2 className="mt-4 text-display-lg text-ink-900 text-balance">
+                AI is a layer. People do the judgment work.
               </h2>
               <p className="mt-5 text-body text-ink-500">
-                Tax decisions on non-standard transactions. Classification
-                calls in genuinely ambiguous cases. Compliance positions on
-                related-party transactions. Strategic advice on financing,
-                pricing, or structure. Final review of records before filing.
+                Tax positions on non-standard transactions. Classification calls
+                in genuinely ambiguous cases. Related-party reviews. Strategic
+                advice on financing, pricing, or structure. Final review of
+                records before filing — these stay with Meraki professionals.
               </p>
-            </div>
-            <div className="lg:col-span-6">
-              <ul className="space-y-3">
+              <ul className="mt-8 space-y-3">
                 {NOT_REPLACEMENT.map((line) => (
                   <li
                     key={line}
@@ -293,18 +409,24 @@ export default function MerakiAIPage() {
                       className="h-4 w-4 mt-1 text-ink-300 shrink-0"
                     />
                     <span>
-                      <strong className="text-ink-900 font-semibold">Not a replacement for:</strong>{" "}
+                      <strong className="text-ink-900 font-semibold">
+                        Not a replacement for:
+                      </strong>{" "}
                       {line}
                     </span>
                   </li>
                 ))}
               </ul>
             </div>
+            <div className="lg:col-span-7">
+              <ComplianceReadinessCard />
+            </div>
           </div>
         </Container>
       </Section>
 
-      <Section bg="paper">
+      {/* AI PLANS */}
+      <Section bg="cream">
         <Container size="pro">
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12">
             <div className="max-w-2xl">
@@ -312,10 +434,19 @@ export default function MerakiAIPage() {
               <h2 className="mt-4 text-display-lg text-ink-900 text-balance">
                 Subscribe at the level your business needs.
               </h2>
+              <p className="mt-5 text-body text-ink-500">
+                Each plan includes Meraki professional review. Custom volumes
+                and bundles available on request.
+              </p>
             </div>
-            <Button href="/marketplace?category=meraki-ai" variant="ghost" size="md">
-              Browse marketplace
-            </Button>
+            <div className="flex flex-wrap gap-3">
+              <Button href="/marketplace?category=meraki-ai" variant="primary" size="md">
+                Explore Packages
+              </Button>
+              <Button href="/contact?topic=custom-quote" variant="ghost" size="md">
+                Request Custom Quote
+              </Button>
+            </div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">
             {MERAKI_AI_PACKAGES.map((pkg) => (
@@ -325,17 +456,20 @@ export default function MerakiAIPage() {
         </Container>
       </Section>
 
-      <Section bg="cream">
+      {/* INTEGRATIONS */}
+      <Section bg="paper">
         <Container size="pro">
-          <Eyebrow>Future integrations</Eyebrow>
-          <h2 className="mt-4 text-display-lg text-ink-900 text-balance max-w-3xl">
-            Designed to work alongside your existing systems.
-          </h2>
-          <p className="mt-5 text-body text-ink-500 max-w-3xl">
-            Integrations below are planned or integration-ready direction. Live
-            connections will be confirmed with each release. Meraki AI does not
-            replace the systems below — it works alongside them.
-          </p>
+          <div className="max-w-3xl">
+            <Eyebrow>Future integrations</Eyebrow>
+            <h2 className="mt-4 text-display-lg text-ink-900 text-balance">
+              Designed to work alongside your existing systems.
+            </h2>
+            <p className="mt-5 text-body text-ink-500">
+              The systems below are planned or integration-ready direction.
+              Live connections will be confirmed with each release. Meraki AI
+              does not replace these tools — it works alongside them.
+            </p>
+          </div>
           <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-3">
             {INTEGRATIONS.map((it) => (
               <div
@@ -350,19 +484,41 @@ export default function MerakiAIPage() {
         </Container>
       </Section>
 
-      <Section bg="paper">
+      {/* FUTURE APP */}
+      <Section bg="cream">
         <Container size="pro">
-          <div className="rounded-card bg-cream border border-hairline p-8 md:p-10 max-w-4xl">
-            <Eyebrow>Future Meraki app</Eyebrow>
-            <h2 className="mt-3 text-display-md text-ink-900 text-balance">
-              The Meraki app is coming.
-            </h2>
-            <p className="mt-4 text-body text-ink-500">
-              Meraki will release a mobile app to bring service marketplace,
-              subscriptions, AI portal, document upload, expense tracking,
-              package management, reports, and support into one place. Personal
-              expense tracking is a future app feature, not a homepage focus.
-            </p>
+          <div className="rounded-card bg-paper border border-hairline p-8 md:p-12 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            <div className="lg:col-span-7">
+              <Eyebrow>Future Meraki app</Eyebrow>
+              <h2 className="mt-3 text-display-md text-ink-900 text-balance">
+                The Meraki app is coming.
+              </h2>
+              <p className="mt-4 text-body text-ink-500">
+                Meraki will release a mobile app to bring service marketplace,
+                subscriptions, AI portal, document upload, expense tracking,
+                package management, reports, and support into one place.
+              </p>
+            </div>
+            <ul className="lg:col-span-5 grid grid-cols-2 gap-3">
+              {[
+                { l: "Marketplace", i: "cart" as IconName },
+                { l: "Subscriptions", i: "manage" as IconName },
+                { l: "Document upload", i: "upload" as IconName },
+                { l: "Reports", i: "chart" as IconName },
+              ].map((f) => (
+                <li
+                  key={f.l}
+                  className="rounded-2xl border border-hairline bg-cream px-4 py-4 flex items-center gap-3"
+                >
+                  <span className="h-9 w-9 rounded-xl bg-paper border border-hairline text-bronze-700 flex items-center justify-center">
+                    <Icon name={f.i} className="h-4 w-4" />
+                  </span>
+                  <span className="text-sm font-semibold text-ink-900">
+                    {f.l}
+                  </span>
+                </li>
+              ))}
+            </ul>
           </div>
         </Container>
       </Section>
@@ -370,12 +526,13 @@ export default function MerakiAIPage() {
       <ContactCTA />
       <FinalCTA
         eyebrow="Get started"
-        headline="Records that stay ready. Workflows your team trusts."
+        headline="AI checks. Meraki verifies. Your records stay ready."
+        body="Request a demo, explore packages, or talk to our team. Whichever way you start, you start under one Meraki standard."
         primaryCta={{
-          label: "View AI Packages",
-          href: "/marketplace?category=meraki-ai",
+          label: "Request AI Demo",
+          href: "/contact?topic=ai-demo",
         }}
-        secondaryCta={{ label: "Explore Portal", href: "/portal" }}
+        secondaryCta={{ label: "Explore Packages", href: "/marketplace?category=meraki-ai" }}
         tertiaryCta={{ label: "Speak to Our Team", href: "/contact" }}
       />
     </>
@@ -415,5 +572,82 @@ function CaptureChannel({
       <p className="mt-4 text-base font-semibold text-ink-900">{title}</p>
       <p className="mt-1.5 text-body-sm text-ink-500 leading-relaxed">{body}</p>
     </li>
+  );
+}
+
+function ComplianceReadinessCard() {
+  const checklist: Array<{
+    label: string;
+    sub: string;
+    status: "ready" | "review" | "pending";
+  }> = [
+    { label: "VAT records", sub: "Q1 file organized", status: "ready" },
+    { label: "Supplier invoices", sub: "3 flagged for review", status: "review" },
+    { label: "Corporate Tax file", sub: "Records being prepared", status: "pending" },
+    { label: "E-invoicing readiness", sub: "Master data check", status: "review" },
+    { label: "Expense classification", sub: "Categories suggested", status: "ready" },
+    { label: "Monthly summary", sub: "Awaiting Meraki sign-off", status: "review" },
+  ];
+  const statusStyles = {
+    ready: "bg-success/10 text-success border border-success/20",
+    review: "bg-warning/10 text-warning border border-warning/20",
+    pending: "bg-ink-100 text-ink-500 border border-hairline",
+  };
+  const statusLabel = {
+    ready: "Ready",
+    review: "In review",
+    pending: "Pending",
+  };
+  return (
+    <div className="relative">
+      <div className="absolute -inset-8 bg-bronze-radial blur-3xl opacity-50 pointer-events-none" />
+      <div className="relative rounded-card bg-paper border border-border shadow-soft overflow-hidden">
+        <div className="border-b border-hairline px-6 py-4 bg-ink-900 text-paper flex items-center justify-between">
+          <div>
+            <p className="text-[10px] uppercase tracking-wider text-bronze-300 font-bold">
+              Compliance readiness
+            </p>
+            <p className="mt-0.5 text-sm font-semibold">
+              Sample dashboard view · April 2026
+            </p>
+          </div>
+          <span className="rounded-pill bg-bronze-500/15 text-bronze-300 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1">
+            Demo
+          </span>
+        </div>
+        <ul className="divide-y divide-hairline">
+          {checklist.map((c) => (
+            <li
+              key={c.label}
+              className="flex items-center gap-4 px-6 py-4"
+            >
+              <span className="h-9 w-9 rounded-xl bg-bronze-50 border border-bronze-100 text-bronze-700 inline-flex items-center justify-center shrink-0">
+                <Icon name="check" className="h-4 w-4" />
+              </span>
+              <div className="min-w-0 flex-1">
+                <p className="text-sm font-semibold text-ink-900 truncate">
+                  {c.label}
+                </p>
+                <p className="text-xs text-ink-500 truncate">{c.sub}</p>
+              </div>
+              <span
+                className={`rounded-pill px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider whitespace-nowrap ${statusStyles[c.status]}`}
+              >
+                {statusLabel[c.status]}
+              </span>
+            </li>
+          ))}
+        </ul>
+        <div className="px-6 py-4 bg-cream border-t border-hairline flex items-center justify-between gap-3">
+          <p className="text-xs text-ink-500">
+            Statuses subject to required documents and Meraki professional
+            review.
+          </p>
+          <span className="text-[10px] uppercase tracking-wider text-ink-300 font-bold">
+            Sample only
+          </span>
+        </div>
+      </div>
+    </div>
   );
 }
