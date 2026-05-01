@@ -1,0 +1,131 @@
+import Link from "next/link";
+import { Container } from "@/components/ui/Container";
+import { Logo } from "@/components/layout/Logo";
+import { Icon } from "@/components/ui/Icon";
+import { CONTACT, FOOTER_NAV } from "@/data/nav";
+
+export function SiteFooter() {
+  return (
+    <footer className="bg-ink-900 text-ink-100 relative overflow-hidden">
+      <div className="absolute inset-0 bg-ink-radial pointer-events-none" />
+      <Container size="pro" className="relative">
+        <div className="py-20 md:py-24">
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
+            <div className="lg:col-span-4 space-y-6">
+              <Logo variant="light" />
+              <p className="text-ink-300 max-w-md text-body-sm">
+                Enterprise-level business support, made accessible to UAE
+                companies. Accounting, tax, compliance, business setup, cash-flow
+                management, and AI-assisted finance workflows in one connected
+                system.
+              </p>
+              <p className="text-bronze-300 text-sm font-semibold tracking-wide">
+                One system. One team. One standard.
+              </p>
+              <div className="space-y-2.5 pt-2">
+                <a
+                  href={`mailto:${CONTACT.email}`}
+                  className="group inline-flex items-center gap-2.5 text-ink-100 hover:text-bronze-300 text-sm"
+                >
+                  <Icon name="email" className="h-4 w-4 text-bronze-300" />
+                  {CONTACT.email}
+                </a>
+                <br />
+                <a
+                  href={CONTACT.whatsappHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2.5 text-ink-100 hover:text-bronze-300 text-sm"
+                >
+                  <Icon name="whatsapp" className="h-4 w-4 text-bronze-300" />
+                  {CONTACT.phone}
+                </a>
+                <br />
+                <a
+                  href={CONTACT.instagramHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2.5 text-ink-100 hover:text-bronze-300 text-sm"
+                >
+                  <Icon name="instagram" className="h-4 w-4 text-bronze-300" />
+                  {CONTACT.instagram}
+                </a>
+                <br />
+                <a
+                  href={CONTACT.mapsHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2.5 text-ink-100 hover:text-bronze-300 text-sm"
+                >
+                  <Icon name="pin" className="h-4 w-4 text-bronze-300" />
+                  Dubai, United Arab Emirates
+                </a>
+              </div>
+            </div>
+
+            <div className="lg:col-span-8 grid grid-cols-2 md:grid-cols-3 gap-10">
+              <FooterColumn title="Services" items={FOOTER_NAV.services} />
+              <FooterColumn title="Company" items={FOOTER_NAV.company} />
+              <FooterColumn title="Portal" items={FOOTER_NAV.portal} />
+            </div>
+          </div>
+
+          <div className="mt-16 pt-8 border-t border-paper/10 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+            <p className="text-xs text-ink-300 max-w-2xl">
+              © {new Date().getFullYear()} Meraki Business Consultants.
+              {" "}
+              {CONTACT.region}
+              {" "}
+              Services are subject to required documents, authority portal
+              requirements, and applicable UAE regulations.
+            </p>
+            <div className="flex flex-wrap gap-x-6 gap-y-2 text-xs text-ink-300">
+              <Link href="/about" className="hover:text-paper">
+                About
+              </Link>
+              <Link href="/contact" className="hover:text-paper">
+                Contact
+              </Link>
+              <Link href="/insights" className="hover:text-paper">
+                Insights
+              </Link>
+              <a
+                href="/sitemap.xml"
+                className="hover:text-paper"
+                aria-label="Sitemap"
+              >
+                Sitemap
+              </a>
+            </div>
+          </div>
+        </div>
+      </Container>
+    </footer>
+  );
+}
+
+function FooterColumn({
+  title,
+  items,
+}: {
+  title: string;
+  items: { label: string; href: string }[];
+}) {
+  return (
+    <div>
+      <h4 className="text-eyebrow uppercase text-bronze-300 mb-5">{title}</h4>
+      <ul className="space-y-3">
+        {items.map((item) => (
+          <li key={item.href}>
+            <Link
+              href={item.href}
+              className="text-sm text-ink-100 hover:text-bronze-300"
+            >
+              {item.label}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
