@@ -425,20 +425,23 @@ export default function MerakiAIPage() {
         </Container>
       </Section>
 
-      {/* MERAKI AI PORTAL */}
+      {/* MERAKI AI PORTAL LOGIN */}
       <Section bg="paper">
         <Container size="pro">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
             <div className="lg:col-span-5">
-              <Eyebrow>Meraki AI Portal</Eyebrow>
+              <Eyebrow>Meraki AI Portal Login</Eyebrow>
               <h2 className="mt-4 text-display-lg text-ink-900 text-balance">
-                A separate workspace for AI-assisted finance review.
+                A separate login for approved Meraki AI subscribers.
               </h2>
               <p className="mt-5 text-body text-ink-500">
-                Meraki AI Portal is a separate subscription workspace for
-                AI-assisted invoice, tax, compliance, expense, and workflow
-                review. Access is separate from the Marketplace Login and is
-                provided to approved Meraki AI subscribers.
+                Meraki AI Portal Login is separate from Marketplace Login and
+                is available for approved Meraki AI subscribers.
+              </p>
+              <p className="mt-4 text-body text-ink-500">
+                Use the Meraki AI Portal to access AI-assisted invoice,
+                document, tax, compliance, expense, and workflow review
+                features.
               </p>
               <p className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-bronze-700">
                 <span className="h-px w-8 bg-bronze-500" />
@@ -449,8 +452,15 @@ export default function MerakiAIPage() {
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Button
-                  href="/contact?intent=meraki-ai-access"
+                  href="/contact?intent=meraki-ai-portal-login"
                   variant="primary"
+                  size="md"
+                >
+                  Meraki AI Portal Login
+                </Button>
+                <Button
+                  href="/contact?intent=meraki-ai-access"
+                  variant="ghost"
                   size="md"
                 >
                   Request Meraki AI Access
@@ -460,20 +470,16 @@ export default function MerakiAIPage() {
                   variant="ghost"
                   size="md"
                 >
-                  Explore Meraki AI Subscription
+                  Explore AI Subscription
                 </Button>
                 <Button href="/contact" variant="ghost" size="md">
                   Speak to Our Team
                 </Button>
-                <Button href="/packages" variant="ghost" size="md">
-                  View Marketplace Packages
-                </Button>
               </div>
               <p className="mt-6 text-xs text-ink-500 leading-relaxed max-w-md">
-                Marketplace Login is for service purchases and package
-                requests. Meraki AI Portal is for AI-assisted document,
-                invoice, tax, compliance, and workflow review. Separate
-                subscription required. Terms apply.
+                Live login activates for approved Meraki AI subscribers —
+                coming soon. Separate subscription required. Not for
+                marketplace service purchases. Terms apply.
               </p>
             </div>
             <div className="lg:col-span-7">
@@ -511,10 +517,9 @@ export default function MerakiAIPage() {
                 </ul>
                 <p className="mt-6 text-xs text-ink-500 leading-relaxed">
                   Capabilities listed above describe the Meraki AI Portal
-                  scope. Live access activates for approved Meraki AI
-                  subscribers — coming soon for general availability. Subject
-                  to required documents, authority portal requirements, and
-                  applicable UAE regulations.
+                  scope. Access available when activated. Approved subscribers
+                  only. Subject to required documents, authority portal
+                  requirements, and applicable UAE regulations.
                 </p>
               </div>
             </div>

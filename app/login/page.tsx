@@ -10,7 +10,7 @@ import { buildMetadata } from "@/lib/seo";
 export const metadata = buildMetadata({
   title: "Marketplace Login",
   description:
-    "Marketplace Login is for Meraki service customers. Create an account or log in to request services, compare packages, and manage your Meraki marketplace activity. Meraki AI Portal access is separate.",
+    "Marketplace Login is for Meraki service customers. Log in or create an account to browse services, request packages, submit one-time service requests, and manage your Meraki marketplace activity. Meraki AI Portal Login is separate.",
   path: "/login",
   noIndex: true,
 });
@@ -28,7 +28,7 @@ const MARKETPLACE_CAPABILITIES: {
   },
   {
     icon: "manage",
-    label: "Start eligible monthly packages",
+    label: "Start monthly support packages",
     detail:
       "Subscribe to Meraki accounting, VAT, Corporate Tax, or compliance packages once your account is active.",
   },
@@ -40,33 +40,27 @@ const MARKETPLACE_CAPABILITIES: {
   },
   {
     icon: "calendar",
-    label: "Track service requests",
+    label: "Track service requests later",
     detail:
-      "View status of submitted requests, packages in flight, and one-time services.",
+      "View status of submitted requests, packages in flight, and one-time services from your account.",
   },
   {
     icon: "user",
-    label: "Manage future subscriptions",
+    label: "Manage future subscriptions when activated",
     detail:
-      "Subscription management, renewals, and add-on services when activated.",
-  },
-  {
-    icon: "shield",
-    label: "Stripe-ready checkout",
-    detail:
-      "The marketplace account structure is Stripe-ready. Live payments and checkout activate when connected.",
+      "Subscription management, renewals, and add-on services activate alongside marketplace checkout.",
   },
 ];
 
 const FLOW_STEPS: { step: string; title: string; body: string }[] = [
   {
     step: "01",
-    title: "Login or sign up",
+    title: "Create account or log in",
     body: "Marketplace access is required before submitting service requests, purchasing packages, or starting subscriptions.",
   },
   {
     step: "02",
-    title: "Select a service or package",
+    title: "Choose service or package",
     body: "Browse the marketplace, choose a one-time service, monthly package, or request a custom quote.",
   },
   {
@@ -96,29 +90,25 @@ export default function LoginPage() {
                 Marketplace Login
               </h1>
               <p className="mt-6 text-lead text-ink-500 max-w-2xl">
-                Create an account or log in to request services, compare
-                packages, and manage your Meraki marketplace activity.
+                Log in or create an account to request services, browse
+                packages, submit one-time service requests, and manage your
+                Meraki marketplace activity.
               </p>
               <p className="mt-5 text-body text-ink-500 max-w-2xl">
                 Marketplace access is required before submitting service
                 requests, purchasing packages, or starting subscriptions.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
-                <Button href="/packages" variant="primary" size="md">
-                  View Packages
+                <Button href="/marketplace" variant="primary" size="md">
+                  Browse Marketplace
                 </Button>
-                <Button href="/marketplace" variant="ghost" size="md">
-                  Browse Services
+                <Button href="/packages" variant="ghost" size="md">
+                  View Packages
                 </Button>
                 <Button href="/contact" variant="ghost" size="md">
                   Speak to Our Team
                 </Button>
-                <Button
-                  href="/meraki-ai"
-                  variant="ghost"
-                  size="md"
-                  iconLeft={<Icon name="spark" className="h-4 w-4" />}
-                >
+                <Button href="/meraki-ai" variant="ghost" size="md">
                   Explore Meraki AI
                 </Button>
               </div>
@@ -287,38 +277,19 @@ export default function LoginPage() {
         </Container>
       </Section>
 
-      {/* MERAKI AI PORTAL IS SEPARATE */}
-      <Section bg="paper" tone="default">
+      {/* MERAKI AI PORTAL IS SEPARATE — short note */}
+      <Section bg="paper" tone="tight">
         <Container size="pro">
-          <div className="rounded-card bg-cream border border-hairline p-7 md:p-9">
-            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-              <div className="max-w-2xl">
-                <Eyebrow>Meraki AI Portal is separate</Eyebrow>
-                <h2 className="mt-3 text-display-md text-ink-900 text-balance">
-                  AI-assisted finance review lives in its own workspace.
-                </h2>
-                <p className="mt-4 text-body-sm text-ink-500 leading-relaxed">
-                  Marketplace Login is for service purchases and package
-                  requests. Meraki AI Portal is a separate subscription
-                  workspace for AI-assisted document, invoice, tax, compliance,
-                  and workflow review. Separate subscription required. Speak to
-                  Meraki to request access.
-                </p>
-              </div>
-              <div className="flex flex-wrap gap-3 shrink-0">
-                <Button href="/meraki-ai" variant="primary" size="md">
-                  Explore Meraki AI
-                </Button>
-                <Button
-                  href="/contact?intent=meraki-ai-access"
-                  variant="ghost"
-                  size="md"
-                >
-                  Request AI Access
-                </Button>
-              </div>
-            </div>
-          </div>
+          <p className="max-w-3xl text-sm text-ink-500 leading-relaxed">
+            Meraki AI Portal Login access is separate and available from the{" "}
+            <a
+              href="/meraki-ai"
+              className="font-semibold text-ink-900 underline decoration-bronze-500 underline-offset-4 hover:text-bronze-700"
+            >
+              Meraki AI page
+            </a>{" "}
+            for approved AI subscribers.
+          </p>
         </Container>
       </Section>
     </>
