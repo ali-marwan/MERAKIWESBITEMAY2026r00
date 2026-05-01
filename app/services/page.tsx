@@ -29,7 +29,7 @@ export default function ServicesPage() {
   return (
     <>
       {/* Hero */}
-      <Section bg="paper" tone="default" className="pt-20 md:pt-28">
+      <Section bg="paper" tone="default">
         <div
           aria-hidden="true"
           className="absolute inset-0 pointer-events-none bg-noise opacity-50"

@@ -65,7 +65,7 @@ const PORTAL_CAPABILITIES: { icon: IconName; label: string; detail: string }[] =
 export default function LoginPage() {
   return (
     <>
-      <Section bg="cream" tone="hero">
+      <Section bg="cream" tone="default">
         <Container size="pro">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
             <div className="lg:col-span-7">

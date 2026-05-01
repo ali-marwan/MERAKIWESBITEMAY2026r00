@@ -111,7 +111,7 @@ export default function MerakiAIPage() {
   return (
     <>
       {/* HERO */}
-      <Section bg="paper" tone="default" className="pt-20 md:pt-28">
+      <Section bg="paper" tone="default">
         <Container size="pro">
           <div className="grid grid-cols-1 lg:grid-cols-[1.25fr_1fr] gap-12 lg:gap-16 items-center">
             <div>
