@@ -3,6 +3,7 @@ import type { NavItem } from "@/lib/types";
 export const PRIMARY_NAV: NavItem[] = [
   { label: "Services", href: "/services" },
   { label: "Packages", href: "/packages" },
+  { label: "Marketplace", href: "/marketplace" },
   { label: "Meraki AI", href: "/meraki-ai" },
   { label: "E-Invoicing", href: "/e-invoicing" },
   { label: "Insights", href: "/insights" },
