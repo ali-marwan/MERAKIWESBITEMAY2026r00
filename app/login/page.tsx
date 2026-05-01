@@ -4,7 +4,7 @@ import { Pill } from "@/components/ui/Pill";
 import { Eyebrow } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { Icon, type IconName } from "@/components/ui/Icon";
-import { Logo } from "@/components/layout/Logo";
+import { MarketplaceAuthForm } from "@/components/marketplace/MarketplaceAuthForm";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata = buildMetadata({
@@ -90,13 +90,15 @@ export default function LoginPage() {
                 Marketplace Login
               </h1>
               <p className="mt-6 text-lead text-ink-500 max-w-2xl">
-                Log in or create an account to request services, browse
-                packages, submit one-time service requests, and manage your
-                Meraki marketplace activity.
+                Anyone can create a Meraki marketplace account. Log in or sign
+                up to browse services, request packages, submit one-time
+                service requests, and manage everything from your own
+                marketplace dashboard.
               </p>
               <p className="mt-5 text-body text-ink-500 max-w-2xl">
                 Marketplace access is required before submitting service
-                requests, purchasing packages, or starting subscriptions.
+                requests, purchasing packages, or starting subscriptions —
+                each customer gets their own account area.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Button href="/marketplace" variant="primary" size="md">
@@ -113,86 +115,14 @@ export default function LoginPage() {
                 </Button>
               </div>
               <p className="mt-6 text-sm text-ink-500 max-w-xl">
-                Already have an account? Sign-in is being prepared and will
-                activate alongside marketplace checkout. Contact our team to
-                request a marketplace account.
+                Self-service login and Stripe-ready checkout activate alongside
+                marketplace launch. Until then, the form on the right routes
+                your details to our team to set up your account.
               </p>
             </div>
 
             <div className="lg:col-span-5">
-              <div className="rounded-card bg-paper border border-border shadow-soft p-7 md:p-8">
-                <div className="flex items-center justify-between gap-4 mb-5">
-                  <Logo />
-                  <span className="rounded-pill bg-bronze-50 border border-bronze-100 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-bronze-700">
-                    In preparation
-                  </span>
-                </div>
-                <p className="text-display-sm text-ink-900">
-                  Marketplace account access
-                </p>
-                <p className="mt-2 text-body-sm text-ink-500">
-                  Sign-in and account creation are being prepared. While the
-                  marketplace is being readied, you can request services,
-                  packages, or custom quotes through our team.
-                </p>
-
-                <div className="mt-5 rounded-2xl border border-hairline bg-cream p-4 flex items-start gap-3">
-                  <span className="h-9 w-9 rounded-xl bg-paper border border-hairline text-bronze-700 flex items-center justify-center shrink-0">
-                    <Icon name="shield" className="h-4 w-4" />
-                  </span>
-                  <div className="text-sm text-ink-700">
-                    <p className="font-semibold text-ink-900">
-                      Stripe-ready, not yet live
-                    </p>
-                    <p className="mt-1 text-ink-500">
-                      The marketplace structure is Stripe-ready. Live payments
-                      and checkout activate when connected. No fake credentials
-                      are accepted.
-                    </p>
-                  </div>
-                </div>
-
-                <ul className="mt-5 space-y-2 text-sm text-ink-700">
-                  {[
-                    "One account for services, packages, and quotes",
-                    "Track requests and order history",
-                    "Manage subscriptions when activated",
-                  ].map((item) => (
-                    <li key={item} className="flex items-start gap-2.5">
-                      <Icon
-                        name="check"
-                        className="h-4 w-4 mt-0.5 text-bronze-700 shrink-0"
-                      />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                <div className="mt-6 flex flex-col sm:flex-row gap-3">
-                  <Button
-                    href="/contact?intent=marketplace-account"
-                    variant="primary"
-                    size="md"
-                    fullWidth
-                  >
-                    Request marketplace account
-                  </Button>
-                  <Button
-                    href="/marketplace"
-                    variant="ghost"
-                    size="md"
-                    fullWidth
-                  >
-                    Browse marketplace
-                  </Button>
-                </div>
-
-                <p className="mt-5 pt-5 border-t border-hairline text-[11px] text-ink-500 leading-relaxed">
-                  Marketplace Login is for service purchases and package
-                  requests. Meraki AI Portal is a separate subscription
-                  workspace and is accessed from the Meraki AI page.
-                </p>
-              </div>
+              <MarketplaceAuthForm />
             </div>
           </div>
         </Container>
