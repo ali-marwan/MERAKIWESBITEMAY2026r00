@@ -1,14 +1,16 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
-import { PRIMARY_NAV, CONTACT } from "@/data/nav";
+import { MOBILE_NAV, CONTACT } from "@/data/nav";
 import { cn } from "@/lib/utils";
 
 export function MobileNav() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname() ?? "/";
 
   useEffect(() => {
     if (open) {
@@ -29,6 +31,11 @@ export function MobileNav() {
     return () => window.removeEventListener("keydown", onKey);
   }, []);
 
+  const isActive = (href: string) => {
+    if (href === "/") return pathname === "/";
+    return pathname === href || pathname.startsWith(`${href}/`);
+  };
+
   return (
     <>
       <button
@@ -36,7 +43,7 @@ export function MobileNav() {
         aria-label="Open menu"
         aria-expanded={open}
         onClick={() => setOpen(true)}
-        className="xl:hidden inline-flex h-11 w-11 items-center justify-center rounded-pill border border-ink-900/15 text-ink-900 hover:bg-cream"
+        className="lg:hidden inline-flex h-11 w-11 items-center justify-center rounded-pill border border-ink-900/15 text-ink-900 hover:bg-cream"
       >
         <Icon name="menu" className="h-5 w-5" />
       </button>
@@ -46,7 +53,7 @@ export function MobileNav() {
         aria-modal="true"
         aria-hidden={!open}
         className={cn(
-          "fixed inset-0 z-50 xl:hidden transition-all",
+          "fixed inset-0 z-50 lg:hidden transition-all",
           open ? "visible opacity-100" : "invisible opacity-0",
         )}
       >
@@ -56,7 +63,7 @@ export function MobileNav() {
         />
         <div
           className={cn(
-            "absolute right-0 top-0 h-full w-full max-w-sm bg-paper shadow-lift transition-transform duration-300",
+            "absolute right-0 top-0 h-full w-full max-w-sm bg-paper shadow-lift transition-transform duration-300 flex flex-col",
             open ? "translate-x-0" : "translate-x-full",
           )}
         >
@@ -71,17 +78,29 @@ export function MobileNav() {
               <Icon name="close" className="h-4 w-4" />
             </button>
           </div>
-          <nav className="flex flex-col gap-1 p-4">
-            {PRIMARY_NAV.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                onClick={() => setOpen(false)}
-                className="px-4 py-3 rounded-xl text-base font-medium text-ink-900 hover:bg-cream"
-              >
-                {item.label}
-              </Link>
-            ))}
+          <nav
+            aria-label="Mobile primary"
+            className="flex flex-col gap-1 p-4 overflow-y-auto"
+          >
+            {MOBILE_NAV.map((item) => {
+              const active = isActive(item.href);
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setOpen(false)}
+                  aria-current={active ? "page" : undefined}
+                  className={cn(
+                    "px-4 py-3 rounded-xl text-base font-medium transition",
+                    active
+                      ? "bg-cream text-ink-900"
+                      : "text-ink-900 hover:bg-cream",
+                  )}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
           </nav>
           <div className="px-6 pt-4 border-t border-hairline space-y-3">
             <Button href="/login" variant="ghost" size="md" fullWidth>

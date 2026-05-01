@@ -2,12 +2,23 @@ import type { NavItem } from "@/lib/types";
 
 export const PRIMARY_NAV: NavItem[] = [
   { label: "Services", href: "/services" },
-  { label: "Marketplace", href: "/marketplace" },
   { label: "Packages", href: "/packages" },
-  { label: "E-Invoicing", href: "/e-invoicing" },
   { label: "Meraki AI", href: "/meraki-ai" },
+  { label: "E-Invoicing", href: "/e-invoicing" },
   { label: "Insights", href: "/insights" },
   { label: "About", href: "/about" },
+];
+
+export const MOBILE_NAV: NavItem[] = [
+  { label: "Home", href: "/" },
+  { label: "Services", href: "/services" },
+  { label: "Packages", href: "/packages" },
+  { label: "Marketplace", href: "/marketplace" },
+  { label: "Meraki AI", href: "/meraki-ai" },
+  { label: "E-Invoicing", href: "/e-invoicing" },
+  { label: "Insights", href: "/insights" },
+  { label: "About", href: "/about" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export const FOOTER_NAV = {
@@ -21,9 +32,9 @@ export const FOOTER_NAV = {
   ] satisfies NavItem[],
   company: [
     { label: "About Meraki", href: "/about" },
-    { label: "Insights", href: "/insights" },
-    { label: "Marketplace", href: "/marketplace" },
     { label: "Packages", href: "/packages" },
+    { label: "Marketplace", href: "/marketplace" },
+    { label: "Insights", href: "/insights" },
     { label: "Contact", href: "/contact" },
   ] satisfies NavItem[],
   portal: [

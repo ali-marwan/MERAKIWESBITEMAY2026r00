@@ -63,7 +63,7 @@ Meraki's view is that UAE SMEs deserve enterprise-level structure without enterp
     title: "VAT Invoice Mistakes UAE Businesses Should Review",
     excerpt:
       "A short, practical review of the most common UAE VAT invoice issues — what to check, why it matters, and how to clean up the workflow.",
-    category: "VAT",
+    category: "UAE VAT",
     publishedAt: "2026-04-15",
     author: "Meraki Editorial",
     readingMinutes: 7,
@@ -316,10 +316,10 @@ Meraki's cash-flow support is built around this structure. Receivable and payabl
 
   {
     slug: "common-compliance-mistakes-uae-businesses-make",
-    title: "Common Compliance Mistakes UAE Businesses Make (And How to Avoid Them)",
+    title: "Common Compliance Slips UAE Businesses Should Review",
     excerpt:
       "The most frequent compliance slips we see in UAE SMEs — what causes them, why they get expensive, and the simple structural fixes that prevent them.",
-    category: "Compliance Mistakes",
+    category: "Compliance Readiness",
     publishedAt: "2026-04-29",
     author: "Meraki Editorial",
     readingMinutes: 7,
@@ -388,6 +388,67 @@ The fix is structural cadence: monthly close, quarterly review, pre-window readi
 A compliance posture that holds up under scrutiny has six visible properties: monthly bookkeeping close, single document capture surface, clean master data, a tax compliance calendar, supplier invoice review, and quarterly review with whoever does your tax work. None of these require enterprise software. All of them require structure and discipline.
 
 Meraki provides this as a connected system rather than as scattered services. If you want a structured external read on where your compliance posture currently stands, request an Accounting & Tax Risk Assessment — it is the cleanest place to start.`,
+  },
+  {
+    slug: "uae-business-setup-readiness-checklist",
+    title: "A Practical Setup Checklist for New UAE Businesses",
+    excerpt:
+      "Trade license, ownership structure, banking, accounting, and tax registrations — a clear sequence to follow when starting or restructuring a UAE business.",
+    category: "Business Setup",
+    publishedAt: "2026-03-10",
+    author: "Meraki Editorial",
+    readingMinutes: 6,
+    tags: ["UAE", "Business Setup", "Mainland", "Free Zone"],
+    cta: { label: "Start with Meraki Setup", href: "/services#start" },
+    body: `Setting up a new UAE business is a sequence problem more than a paperwork problem. The activities, license type, and ownership structure decided in week one quietly shape the tax, banking, and reporting work for the next several years. The right time to think these through carefully is at the beginning, not after the trade license has been issued.
+
+This article is a practical readiness checklist. It is not legal or regulatory advice — final decisions on licensing, jurisdiction, and registrations may require professional review based on your activity, ownership, and circumstances. The aim is to give founders a clear sequence to walk through and a framework to ask the right questions.
+
+## 1. Activity and license type
+
+Pick the activities that genuinely describe what the business will do, including reasonable adjacencies you may grow into. Activities decide license type, reserved-name approvals, and the kinds of contracts you can sign. Adding activities later is possible but rarely free.
+
+## 2. Mainland vs Free Zone
+
+The mainland-versus-free-zone choice depends on who your customers are, where they sit, whether you need physical presence, and how you plan to bill. Each option has trade-offs around onshore contracting, office requirements, and ownership rules. A short conversation with a setup specialist before filing is dramatically cheaper than restructuring later.
+
+## 3. Ownership and shareholding structure
+
+Document the ownership structure clearly from day one. Shareholder agreements, share splits, board composition, and signatory rights should be agreed before incorporation. Re-papering this after operations have started is more expensive than getting it right at the start.
+
+## 4. Banking
+
+Corporate banking takes time. Pick banks based on the activity, expected transaction profile, and the documentation they will accept. Have your shareholder documents, source-of-funds narrative, expected revenue, and supplier/customer profile ready before you walk in.
+
+## 5. Accounting system from day one
+
+The most common avoidable mistake we see in UAE SMEs is treating accounting as a year-two problem. Open the books from month one with a defined chart of accounts, capture every supplier and customer invoice, and reconcile bank statements monthly. Catching up later is always more expensive than starting clean.
+
+## 6. VAT registration readiness
+
+VAT registration is mandatory above the registration threshold and often optional below it. Either way, decide your position deliberately: track taxable supplies from day one, retain tax invoices in original format, and review whether voluntary registration helps with input VAT recovery on early-stage costs.
+
+## 7. Corporate Tax registration and readiness
+
+Corporate Tax registration timelines depend on activity and incorporation date. Do not treat it as a one-off form. Build expense classification, related-party documentation, and quarterly review into the operating rhythm so that filing windows arrive prepared, not panicked.
+
+## 8. Trade license renewal and document calendar
+
+Trade license renewal, establishment card, and immigration card renewals all sit on different schedules. Build one calendar that lists every renewal, every expiry, and every preparation window. Calendar discipline prevents the recurring "we forgot the renewal" surprise.
+
+## 9. Insurance, payroll, and HR
+
+If you will hire, set up payroll, end-of-service accruals, and required insurance from the first hire — not the tenth. The cost of doing it cleanly at one employee is the same as doing it at twenty; the cost of fixing it later scales with headcount.
+
+## 10. Reporting cadence
+
+Decide what reports you want as a founder before the business needs them. A monthly P&L, a 13-week cash-flow view, and a quarterly review with whoever does your tax work cover the basics. The discipline matters more than the format.
+
+## How Meraki helps
+
+Meraki's Business Setup support sits inside the same connected system as accounting, VAT, Corporate Tax, e-invoicing readiness, and AI-assisted workflows. The point is to avoid handing setup to one provider and then re-explaining everything to another for accounting and tax. One file. One team. One standard from day one.
+
+If you are starting fresh or restructuring, the cleanest place to start is a short call to map activity, jurisdiction, and registrations against the operating model you actually want to run.`,
   },
   {
     slug: "ai-assisted-finance-workflows-for-uae-smes",

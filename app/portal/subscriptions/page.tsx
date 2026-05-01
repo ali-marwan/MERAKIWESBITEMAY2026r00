@@ -97,9 +97,11 @@ export default function PortalSubscriptionsPage() {
         </div>
       </div>
 
-      <p className="mt-6 text-xs text-ink-500">
-        TODO: Stripe — connect subscription management, invoices, and payment
-        method updates.
+      <p className="mt-6 text-xs text-ink-500 leading-relaxed max-w-3xl">
+        Preview only. Subscriptions, billing dates, and payments shown here are
+        illustrative. Live subscription management and invoice history will
+        activate when the portal is released to clients. No payment is taken
+        from this page.
       </p>
     </div>
   );
