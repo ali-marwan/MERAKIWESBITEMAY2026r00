@@ -100,9 +100,11 @@ export default function PortalDashboardPage() {
         </aside>
       </div>
 
-      <p className="mt-8 text-xs text-ink-500">
-        TODO: Connect to live data sources, authentication, and Meraki AI
-        backend.
+      <p className="mt-8 text-xs text-ink-500 leading-relaxed max-w-3xl">
+        Preview only. Stats and uploads above use sample data so you can see
+        how the workspace will feel. Live authentication, secure document
+        storage, and Meraki AI review will activate when the portal is
+        released to clients.
       </p>
     </div>
   );

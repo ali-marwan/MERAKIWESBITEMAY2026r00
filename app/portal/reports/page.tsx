@@ -112,9 +112,11 @@ export default function PortalReportsPage() {
         </table>
       </div>
 
-      <p className="mt-6 text-xs text-ink-500">
-        TODO: Render real generated PDFs and connect to Meraki monthly reporting
-        backend.
+      <p className="mt-6 text-xs text-ink-500 leading-relaxed max-w-3xl">
+        Preview only. Sample report names and dates are illustrative. Real
+        monthly summaries, compliance summaries, and management reports
+        prepared by the Meraki team will appear here once the portal is
+        released to clients.
       </p>
     </div>
   );
